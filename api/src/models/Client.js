@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
     adress:{
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
     bussiness: {
     	type: DataTypes.STRING,
     	allowNull: false,
