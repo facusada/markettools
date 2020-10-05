@@ -19,9 +19,10 @@ module.exports = (sequelize) => {
           args: true,
           message: "Email must be unique.",
       },
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
+  }),
 };
