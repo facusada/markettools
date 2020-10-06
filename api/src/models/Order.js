@@ -14,15 +14,17 @@ module.exports = (sequelize) => {
         },
     commentA: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     commentB: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     coste: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
 };

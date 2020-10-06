@@ -31,7 +31,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 //|||||||||||||||||||||||||||||
 //        RELACIONES        |||
 //|||||||||||||||||||||||||||||
-const { Client, User, Tools, Order, Category } = sequelize.models;
+
+const { Client, Tools, Order, Category } = sequelize.models;
 
 Client.hasMany(Order);
 Order.belongsTo(Client);
