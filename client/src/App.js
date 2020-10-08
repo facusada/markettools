@@ -4,7 +4,8 @@ import './App.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import {Route} from 'react-router-dom';
-import NewClient from './components/CRUD/client';
+// import NewClient from './components/CRUD/client';
+import Header from './components/Nav/Nav'
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
         <Link to="/clientRegister">
 					<button> JOSESITO</button>
 				</Link> */}
-       
-       <NewClient></NewClient>
+        <Route 
+        path='/'
+        component={Header}
+        />
     </div>
   );
 }
