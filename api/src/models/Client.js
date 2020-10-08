@@ -12,6 +12,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    password: {
+      type: DataTypes.STRING
+    },
     email: {
     	type: DataTypes.TEXT,
       allowNull: false,
@@ -21,24 +24,23 @@ module.exports = (sequelize) => {
     },
   },
     phoneA: {
-    	type: DataTypes.INTEGER,
-    	allowNull: false,
+    	type: DataTypes.STRING,
     },
     phoneB: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.STRING,
     },
     city: {
     	type: DataTypes.STRING,
-    	allowNull: false,
     },
-    adress:{
+    address:{
       type: DataTypes.STRING,
-      allowNull: false,
     },
     bussiness: {
     	type: DataTypes.STRING,
-    	allowNull: false,
     },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 };
