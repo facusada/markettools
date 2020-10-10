@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
+import { connect } from "react-redux";
+import { infoMovie, cargardb } from "../../actions/index";
+
 import {
    Collapse,
    Navbar, 
@@ -9,13 +12,33 @@ import {
    NavLink 
   } from 'reactstrap';
 
-const Header = (props) => {
+const Header = ({infoMovie, info_movie, cargardb}) => {
+
+  var apiKey =  '9ec47a8150e44e6385aae05be36f9e11';
+  var ciudad = 'Salta'
+
+  global.key = apiKey;
+  global.city = ciudad;
+
+  useEffect(() => {
+    infoMovie(apiKey, ciudad)     
+    },[])
+
+    const cargandodb= ()=>{
+      cargardb()
+      alert('carga Lista')          
+       
+    }
+
+    console.log('LA PELI STATE', info_movie)
+   
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
     <div>
+      <button onClick={cargandodb} >CARGAR</button>
       <Navbar color="faded" light>
         <NavbarBrand href="/" className="mr-auto">MarketTools</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
@@ -34,4 +57,21 @@ const Header = (props) => {
   );
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  
+return {
+  infoMovie: (key, city) => dispatch(infoMovie(global.key, global.city)),
+  cargardb: () => dispatch(cargardb())  
+}
+}
+
+const mapStateToProps = state => {
+  return {
+      info_movie: state.info_movie
+       
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+ 

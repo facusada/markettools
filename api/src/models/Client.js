@@ -8,16 +8,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dni: {
-      type: DataTypes.INTEGER,
+    lastname: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    dni: {
+      type: DataTypes.INTEGER,      
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
-    	type: DataTypes.TEXT,
-      allowNull: false,
+    	type: DataTypes.TEXT,       
       unique: {
         args: true,
         message: "Email must be unique.",
