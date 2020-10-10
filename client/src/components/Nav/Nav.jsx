@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import { connect } from "react-redux";
-import { infoMovie } from "../../actions/index";
+import { infoMovie, cargardb } from "../../actions/index";
 
 import {
    Collapse,
@@ -12,10 +12,10 @@ import {
    NavLink 
   } from 'reactstrap';
 
-const Header = ({infoMovie, info_movie}) => {
+const Header = ({infoMovie, info_movie, cargardb}) => {
 
   var apiKey =  '9ec47a8150e44e6385aae05be36f9e11';
-  var ciudad = 'Rosario'
+  var ciudad = 'Salta'
 
   global.key = apiKey;
   global.city = ciudad;
@@ -24,8 +24,9 @@ const Header = ({infoMovie, info_movie}) => {
     infoMovie(apiKey, ciudad)     
     },[])
 
-    const disparar = ()=>{
-      infoMovie()
+    const cargandodb= ()=>{
+      cargardb()
+      alert('carga Lista')          
        
     }
 
@@ -37,7 +38,7 @@ const Header = ({infoMovie, info_movie}) => {
 
   return (
     <div>
-      <button onClick={disparar} >PUSH</button>
+      <button onClick={cargandodb} >CARGAR</button>
       <Navbar color="faded" light>
         <NavbarBrand href="/" className="mr-auto">MarketTools</NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
@@ -59,7 +60,8 @@ const Header = ({infoMovie, info_movie}) => {
 const mapDispatchToProps = dispatch => {
   
 return {
-  infoMovie: (key, city) => dispatch(infoMovie(global.key, global.city))   
+  infoMovie: (key, city) => dispatch(infoMovie(global.key, global.city)),
+  cargardb: () => dispatch(cargardb())  
 }
 }
 
