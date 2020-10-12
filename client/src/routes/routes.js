@@ -10,6 +10,11 @@ const states = [
     component : Layout
   },
   {
+    name : 'login',
+    url : '/login',
+    component : Login
+  },
+  {
     name : 'layout.home',
     url  : '/',
     component : Home
@@ -23,11 +28,6 @@ const states = [
     name : 'layout.customers',
     url  : '/customers',
     component : Customers
-  },
-  {
-    name : 'layout.login',
-    url : '/login',
-    component : Login
   }
 ]
 

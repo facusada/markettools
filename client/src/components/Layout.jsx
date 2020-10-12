@@ -6,8 +6,7 @@ import Sidebar from './modules/Sidebar.jsx';
 import Hidden from '@material-ui/core/Hidden';
 import Container from '@material-ui/core/Container';
 import { UIView } from '@uirouter/react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { esES } from '@material-ui/core/locale';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -19,17 +18,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ClippedDrawer() {
   const classes = useStyles();
-  const theme = createMuiTheme({
-    palette: {
-      primary: { main: '#CD4D44' },
-    },
-  }, esES);
 
   return (
 
     <div className={classes.root}>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
         <Navbar></Navbar>
         <Hidden smDown>
           <Sidebar></Sidebar>
@@ -39,7 +32,6 @@ export default function ClippedDrawer() {
          <UIView />
          </main>
          </Container>
-      </ThemeProvider>
     </div>
 
 
