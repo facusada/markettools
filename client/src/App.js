@@ -1,27 +1,17 @@
 import React from 'react';
-
 import './App.css';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
-import {Route} from 'react-router-dom';
-// import NewClient from './components/CRUD/client';
-import Header from './components/Nav/Nav'
+import { UIRouter,UIView, pushStateLocationPlugin} from '@uirouter/react';
+import states from './routes/routes'
 
+const plugins = [
+  pushStateLocationPlugin
+];
 function App() {
   return (
-    <div className="App">
-     
-       {/*  <Route 
-        exact 
-        path='/clientRegister' component={NewClient} />
-        <Link to="/clientRegister">
-					<button> JOSESITO</button>
-				</Link> */}
-        <Route 
-        path='/'
-        component={Header}
-        />
-    </div>
+    <UIRouter plugins={plugins} states={states}>
+      <UIView />
+    </UIRouter>
   );
 }
 
