@@ -2,6 +2,7 @@ import Home from '../components/home/Home';
 import Customers from '../components/customers/Customers';
 import Tools from '../components/tools/Tools';
 import Layout from '../components/Layout';
+import Login from '../components/users/Login'
 
 const states = [
   {
@@ -23,7 +24,11 @@ const states = [
     url  : '/customers',
     component : Customers
   },
-
+  {
+    name : 'layout.login',
+    url : '/login',
+    component : Login
+  }
 ]
 
 export default states
