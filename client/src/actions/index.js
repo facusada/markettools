@@ -4,7 +4,7 @@ export const PRUEBA_API = "PRUEBA_API";
 export const ADD_TOOL = "ADD_TOOL";
 export const ADD_CLIENT = "ADD_CLIENT";
 export const CARGA_DB = "CARGA_DB";
-export const GET_CLIENT = "GET_CLIENT";
+export const ALL_CLIENT = "ALL_CLIENT";
 export const GET_TOOL = "GET_TOOL";
 export const GET_ALL_TOOLS = "GET_ ALL_TOOLS"
 
@@ -39,11 +39,11 @@ export function cargardb () {
 
 export function getClient() {
   return function(dispatch) {
-    return axios.get(`http://localhost:3005/client`)
+    return axios.get(`http://localhost:3005/clients`)
     .then(result => result.data)
     .then(data => {
       dispatch({
-        type: "GET_CLIENT",
+        type: "ALL_CLIENT",
         payload: data
       })
       console.log("Estos son todos los clientes", data)
