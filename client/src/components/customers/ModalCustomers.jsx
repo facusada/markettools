@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +8,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import { connect } from "react-redux";
+import { getClient } from "../../actions/index";
+
 const useStyles = makeStyles({
   button:{
     marginBottom:12,
@@ -15,7 +18,7 @@ const useStyles = makeStyles({
   paper: { minWidth: "500px" },
 });
 
-export default function ModalCustomers({customer,open,onClose,onOpen}) {
+const ModalCustomers = ({customer,open,onClose,onOpen, getClient, all_client}) => {
   const classes = useStyles();
   const defaultCustomer = {name:'',dni:'',phone:'',email:'',adress:''};
   const handleOpen = () => {
@@ -25,7 +28,14 @@ export default function ModalCustomers({customer,open,onClose,onOpen}) {
      onClose(false);
   };
 
+  useEffect(() => {    
+    getClient()
+    },[])
+
+    console.log('A ver el State de CLientes', all_client)
+
   return (
+    
 
     <div>
     <Button variant="contained" color="primary" className={classes.button} onClick={()=>handleOpen()}>
@@ -133,3 +143,21 @@ export default function ModalCustomers({customer,open,onClose,onOpen}) {
     </div>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  
+  return {      
+    getClient: () => dispatch(getClient()),
+     
+  }
+  }
+  
+  const mapStateToProps = state => {
+    return {
+      all_client: state.all_client,
+         
+         
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(ModalCustomers)
